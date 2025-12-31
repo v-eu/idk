@@ -1,3 +1,4 @@
+
 from flask import Flask, request, render_template_string
 import uuid, random, os
 
@@ -171,4 +172,5 @@ def view(mid):
     return render_template_string(VIEW_HTML, message=msg)
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
